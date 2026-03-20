@@ -6,19 +6,22 @@ class NtfyMac < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-mac-arm64"
-      sha256 "346646f37f8b2bf6cb5ffd57c97d7515b30ac476527be969b4385557fd8c2c08" # arm64
-    end
+      url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-mac"
+      sha256 "0000000000000000000000000000000000000000000000000000000000000000" # ntfy-mac
 
-    on_intel do
-      url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-mac-x64"
-      sha256 "7cc5f9f0e3d813c255622982dbc7cc4edde447bf1ef0588be5049ae8df147c39" # x64
+      resource "ntfy-notify" do
+        url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-notify.app.tar.gz"
+        sha256 "0000000000000000000000000000000000000000000000000000000000000000" # ntfy-notify
+      end
     end
   end
 
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    bin.install "ntfy-mac-#{arch}" => "ntfy-mac"
+    bin.install "ntfy-mac"
+
+    resource("ntfy-notify").stage do
+      libexec.install "ntfy-notify.app"
+    end
   end
 
   def caveats
