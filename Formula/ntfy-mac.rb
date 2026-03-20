@@ -23,12 +23,12 @@ class NtfyMac < Formula
 
   def caveats
     <<~EOS
-      👉 Run setup to configure your ntfy server and start the background service:
+      Run setup to configure your ntfy server and start the background service:
 
-           ntfy-mac setup
+        👉 ntfy-mac setup
 
-         Setup stores your credentials in macOS Keychain and auto-starts the
-         daemon — ignore the "brew services start" line below, setup handles it.
+      Setup stores your credentials in macOS Keychain and auto-starts the
+      daemon — ignore the "brew services start" line below, setup handles it.
     EOS
   end
 
