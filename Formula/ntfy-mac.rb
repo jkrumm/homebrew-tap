@@ -19,8 +19,11 @@ class NtfyMac < Formula
   def install
     bin.install "ntfy-mac"
 
+    # Homebrew peels the single top-level directory from the tarball, so the
+    # stage block runs inside ntfy-notify.app/ (not alongside it). Install the
+    # bundle contents into the correct destination path.
     resource("ntfy-notify").stage do
-      libexec.install "ntfy-notify.app"
+      (libexec/"ntfy-notify.app").install Dir["*"]
     end
   end
 
