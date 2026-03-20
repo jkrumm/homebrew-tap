@@ -27,9 +27,8 @@ class NtfyMac < Formula
 
         👉 ntfy-mac setup
 
-      Setup stores your credentials in ~/.config/ntfy-mac/config.json and
-      auto-starts the daemon — ignore the "brew services start" line below,
-      setup handles it.
+      Setup configures your ntfy server credentials and auto-starts the daemon —
+      ignore the "brew services start" line below, setup handles it.
     EOS
   end
 
