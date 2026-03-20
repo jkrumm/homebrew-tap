@@ -10,7 +10,7 @@ class NtfyMac < Formula
       sha256 "7aef90ff0dd5ffdc6be0750bfb36b3eaf480d673021142ef9250d734f3fd5ed0" # ntfy-mac
 
       resource "ntfy-notify" do
-        url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-notify.app.tar.gz"
+        url "https://github.com/jkrumm/ntfy-mac/releases/download/v1.5.0/ntfy-notify.app.tar.gz"
         sha256 "2f0baa47948b90d2d2f840282fed150a7b2a189d3205c5e2a1214b90317c5394" # ntfy-notify
       end
     end
