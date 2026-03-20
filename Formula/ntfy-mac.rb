@@ -1,18 +1,18 @@
 class NtfyMac < Formula
   desc "Forward ntfy notifications to macOS Notification Center"
   homepage "https://github.com/jkrumm/ntfy-mac"
-  version "1.2.0"
+  version "1.3.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-mac-arm64"
-      sha256 "43b218e56f2bb37b7b0cb86168207d20aeb2058bc96cf19cd7c311685c015770" # arm64
+      sha256 "dfef35ff821147a7344dcdc0107d52a63da10b36fc716181b6659a4ccb18fab0" # arm64
     end
 
     on_intel do
       url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-mac-x64"
-      sha256 "951b204efd9fc1ca2c9cb964b9455085a3df7ab3314699fdae0ff4d00280a643" # x64
+      sha256 "ea315d5d3f219ada9d1795dc708069ceb075dd4f56c39059444a9b436089ead8" # x64
     end
   end
 
