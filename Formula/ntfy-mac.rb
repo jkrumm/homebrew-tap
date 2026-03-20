@@ -23,11 +23,10 @@ class NtfyMac < Formula
 
   def caveats
     <<~EOS
-      To get started, run setup to configure your ntfy server and store credentials:
-        ntfy-mac setup
+      🚀 Get started by running setup — this configures your ntfy server,
+         stores credentials in macOS Keychain, and starts the background service:
 
-      Then start ntfy-mac as a background service (auto-starts at login):
-        brew services start jkrumm/tap/ntfy-mac
+           ntfy-mac setup
     EOS
   end
 
