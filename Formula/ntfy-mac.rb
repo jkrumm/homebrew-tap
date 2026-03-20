@@ -21,6 +21,16 @@ class NtfyMac < Formula
     bin.install "ntfy-mac-#{arch}" => "ntfy-mac"
   end
 
+  def caveats
+    <<~EOS
+      To get started, run setup to configure your ntfy server and store credentials:
+        ntfy-mac setup
+
+      Then start ntfy-mac as a background service (auto-starts at login):
+        brew services start jkrumm/tap/ntfy-mac
+    EOS
+  end
+
   service do
     run [opt_bin/"ntfy-mac"]
     keep_alive true
