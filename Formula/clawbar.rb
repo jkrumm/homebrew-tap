@@ -1,9 +1,9 @@
 class Clawbar < Formula
   desc "Menu-bar app for Claude Max usage monitoring"
   homepage "https://github.com/jkrumm/clawbar"
-  url "https://github.com/jkrumm/clawbar/archive/refs/tags/v0.1.0.tar.gz"
-  version "0.1.0"
-  sha256 "87982c30a27c4998db9332172f17ac4fe9440b33575fd2e7c8bed552d60fc9ca"
+  url "https://github.com/jkrumm/clawbar/archive/refs/tags/v0.2.0.tar.gz"
+  version "0.2.0"
+  sha256 "0c45152b6f4343ef584efa767ef0aabad6b646e2fff2c504a69b4ceafcc3768d"
   license "MIT"
 
   # Swift 6 toolchain ships with Xcode Command Line Tools, which Homebrew
