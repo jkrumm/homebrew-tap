@@ -39,7 +39,7 @@ class NtfyMac < Formula
   end
 
   service do
-    run [opt_bin/"ntfy-mac"]
+    run [opt_bin/"ntfy-mac", "start"]
     keep_alive true
     log_path var/"log/ntfy-mac.log"
     error_log_path var/"log/ntfy-mac-error.log"
