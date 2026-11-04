@@ -2,16 +2,16 @@ class HerdrCore < Formula
   desc "Headless terminal core for coding agents (hc)"
   homepage "https://herdr.dev"
   # Bumped by dotfiles scripts/herdr-core-update.ts (newest release at least 24 h old); do not edit by hand.
-  version "0.1.16"
+  version "0.1.17"
 
   on_macos do
     on_arm do
       url "https://releases.herdr.dev/core/#{version}/herdr-core-macos-aarch64.tar.gz"
-      sha256 "698d8f0c44f4e4b15fec174d52a39d57a014cfd71added44b53a0753b469d0fd" # herdr-core-arm
+      sha256 "cedbd4d4d9ba1385588198dd4d3c67d2654478f33add5b6445d4d0eb9da5fcf3" # herdr-core-arm
     end
     on_intel do
       url "https://releases.herdr.dev/core/#{version}/herdr-core-macos-x86_64.tar.gz"
-      sha256 "6af081cdb35c8612c5752d3f64c6a378e6a0313968b6d4fbc4c03c95691b2872" # herdr-core-intel
+      sha256 "e2dc3211edb1f1c77d0e73dd76c1426636d71050f34a5303916a56d363d7062b" # herdr-core-intel
     end
   end
 
