@@ -1,52 +1,42 @@
 class NtfyMac < Formula
-  desc "Forward ntfy notifications to macOS Notification Center"
+  desc "Native macOS client and CLI for ntfy servers"
   homepage "https://github.com/jkrumm/ntfy-mac"
-  version "1.11.0"
+  url "https://github.com/jkrumm/ntfy-mac/releases/download/v2.0.0/ntfy-mac-2.0.0-arm64.tar.gz"
+  version "2.0.0"
+  sha256 "ab4d64adaf0eaf79f31215b55fc9547cc44fd0eb52d39e632657844ca3da5bac"
   license "MIT"
 
-  on_macos do
-    on_arm do
-      url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/ntfy-mac"
-      sha256 "19f393dd88297dbc8137a3104a77bc52c83109f142e5d12cefd9ce59ce2fb844" # ntfy-mac
-
-      resource "ntfy-notify" do
-        url "https://github.com/jkrumm/ntfy-mac/releases/download/v1.11.0/ntfy-notify.app.tar.gz"
-        sha256 "2878dd6cb43367f58cbecd40a56b0ff2d32eb28f2181167c21464c4baabaf018" # ntfy-notify
-      end
-    end
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  def install
-    bin.install "ntfy-mac"
+  depends_on arch: :arm64
+  depends_on macos: :sequoia
 
-    # Homebrew peels the single top-level directory from the tarball, so the
-    # stage block runs inside ntfy-notify.app/ (not alongside it). Install the
-    # bundle contents into the correct destination path.
-    resource("ntfy-notify").stage do
-      (libexec/"ntfy-notify.app").install Dir["*"]
-    end
+  def install
+    prefix.install "NtfyMac.app"
+    bin.install_symlink prefix/"NtfyMac.app/Contents/MacOS/ntfy-mac" => "ntfy-mac"
   end
 
   def caveats
     <<~EOS
-      Run setup to configure your ntfy server and start the background service:
+      The app is installed at:
+        #{opt_prefix}/NtfyMac.app
 
-        👉 ntfy-mac setup
+      Link it into ~/Applications so Spotlight and Login Items find it. If
+      ~/Applications/NtfyMac.app is already a real folder (a curl install), delete that
+      folder first; your config and history stay. Then:
+        mkdir -p ~/Applications && ln -sfn #{opt_prefix}/NtfyMac.app ~/Applications/NtfyMac.app
 
-      Setup configures your ntfy server credentials and auto-starts the daemon —
-      ignore the "brew services start" line below, setup handles it.
+      Keep one install per Mac: `ntfy-mac doctor` warns about a second copy.
+      This copy is managed by Homebrew: update it with `brew upgrade ntfy-mac`.
+
+      Then run `ntfy-mac setup`, or open the app.
     EOS
   end
 
-  service do
-    run [opt_bin/"ntfy-mac", "start"]
-    keep_alive true
-    log_path var/"log/ntfy-mac.log"
-    error_log_path var/"log/ntfy-mac-error.log"
-  end
-
   test do
-    output = shell_output("#{bin}/ntfy-mac --version 2>&1")
-    assert_match "ntfy-mac", output
+    assert_match version.to_s, shell_output("#{bin}/ntfy-mac --version")
   end
 end
