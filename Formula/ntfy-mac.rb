@@ -1,9 +1,9 @@
 class NtfyMac < Formula
   desc "Native macOS client and CLI for ntfy servers"
   homepage "https://github.com/jkrumm/ntfy-mac"
-  url "https://github.com/jkrumm/ntfy-mac/releases/download/v2.0.0/ntfy-mac-2.0.0-arm64.tar.gz"
-  version "2.0.0"
-  sha256 "ab4d64adaf0eaf79f31215b55fc9547cc44fd0eb52d39e632657844ca3da5bac"
+  url "https://github.com/jkrumm/ntfy-mac/releases/download/v2.0.1/ntfy-mac-2.0.1-arm64.tar.gz"
+  version "2.0.1"
+  sha256 "b8eea645962769d2131d96e682732eef61ca491b092fac68d2a19a3d4d55bbc3"
   license "MIT"
 
   livecheck do
