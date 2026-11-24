@@ -1,6 +1,6 @@
 cask "ntfy-mac" do
-  version "2.1.0"
-  sha256 "8dd867b9dff9d03d1a92b3287bef9ac8db7fefeedc502a60a56257f4187cd980"
+  version "2.1.1"
+  sha256 "f212cb90b8e23a2fae54d77262b627ef493b8b3ed35761ed588619417f5ae356"
 
   url "https://github.com/jkrumm/ntfy-mac/releases/download/v#{version}/NtfyMac-#{version}.zip"
   name "ntfy-mac"
